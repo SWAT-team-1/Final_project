@@ -1,7 +1,5 @@
 # Rentaxon
 
-# magazine (chatbot)
-
 ## Team members
 
 - Moayad Osama Alhaj
