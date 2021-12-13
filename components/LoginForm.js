@@ -4,14 +4,15 @@ import { useAuth } from '../contexts/auth'
 
 
 
-const Login = () => {
+const LoginForm = () => {
+    const { login } = useAuth();
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
         let email = e.target.elements.email?.value;
         let password = e.target.elements.password?.value;
 
-        console.log(email, password);
+        login(username, password)
     };
     return (
         <div className='flex h-screen bg-gray-bg1'>
@@ -51,4 +52,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginForm;
