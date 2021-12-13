@@ -13,7 +13,7 @@ export default function useResource() {
 
         try {
             const createUrl=apiUrl+ 'create/'
-            await axios.post(createUrl, info).then(response =>  {Router.push('/login')}
+            await axios.post(createUrl, info).then(response =>  {Router.push('/')}
             );
             mutate(); // mutate causes complete collection to be refetched
 
