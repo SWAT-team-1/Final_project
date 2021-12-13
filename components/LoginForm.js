@@ -1,55 +1,79 @@
 import React from "react";
 import { useAuth } from '../contexts/auth'
-// import Footer from '../components/Footer'
 
-
-
+import Link from 'next/link'
 const LoginForm = () => {
     const { login } = useAuth();
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        let email = e.target.elements.email?.value;
-        let password = e.target.elements.password?.value;
+        let email = e.target.elements.user_email.value;
+        let password = e.target.elements.password.value;
+        console.log(email , password)
 
-        login(username, password)
+        login(email,password)
     };
-    return (
-        <div className='flex h-screen bg-gray-bg1'>
-            <div className='w-full max-w-md px-16 py-10 m-auto bg-white border rounded-lg border-primaryBorder shadow-default'>
-                <h1 className='mt-4 mb-12 text-2xl font-medium text-center text-primary'>
-                    Log in to your account 🔐
-                </h1>
 
-                <form onSubmit={handleFormSubmit}>
-                    <div>
-                        <label htmlFor='email'>Email</label>
-                        <input
-                            type='email'
-                            className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                            id='email'
-                            placeholder='Your Email'
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor='password'>Password</label>
-                        <input
-                            type='password'
-                            className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
-                            id='password'
-                            placeholder='Your Password'
-                        />
-                    </div>
-                    <div className='flex items-center justify-center mt-6'>
-                        <button
-                             className="p-1 px-2 m-3 bg-green-500 text-black-50" type='submit'>   
+    const styling = {
+        backgroundImage: "url(https://thumbs.dreamstime.com/b/blank-product-display-blue-studio-background-pedestal-podium-empty-showcase-stand-backdrops-d-rendering-188287997.jpg)",
+        width:"100%",
+    }
+    return (
+        <div className="font-sans">
+            <div className="relative flex flex-col items-center min-h-screen bg-green-400 sm:justify-center">
+                <div className="relative w-full sm:max-w-sm">
+                    <div className="absolute w-full h-full transform bg-blue-400 shadow-lg card rounded-3xl -rotate-6"></div>
+                    <div className="absolute w-full h-full transform bg-red-400 shadow-lg card rounded-3xl rotate-6"></div>
+                    <div className="relative w-full px-6 py-4 bg-gray-100 shadow-md rounded-3xl">
+                        <label for="" className="block mt-3 text-2xl font-semibold text-center text-gray-700">
                             Login
-                        </button>
+                        </label>
+                        <form onSubmit={handleFormSubmit} className="mt-10">
+                            <div>
+                                <input type="email" id ="user_email"placeholder="mai@gmail.com" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                            </div>
+
+                            <div className="mt-7">
+                                <input type="password"  id ="password" placeholder="Enter your psassword" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                            </div>
+
+                            <div className="flex mt-7">
+                                <label for="remember_me" className="inline-flex items-center w-full cursor-pointer">
+                                    <input id="remember_me" type="checkbox" className="text-indigo-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember" />
+                                    <span className="ml-2 text-sm text-gray-600">
+                                        Remember me
+                                    </span>
+                                </label>
+
+                                <div className="w-full text-right">
+                                    <a className="text-sm text-gray-600 underline hover:text-gray-900" href="#">
+                                        Forgot your password?
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="mt-7">
+                                <button className="w-full py-3 text-white transition duration-500 ease-in-out transform bg-blue-500 shadow-xl rounded-xl hover:shadow-inner focus:outline-none hover:-translate-x hover:scale-105 " type='submit'>
+                                    Login
+                                </button>
+                            </div>
+
+                            <div class="mt-7">
+                                <div class="flex justify-center items-center">
+                                    <label class="mr-2" >Don't have an account? </label>
+                                    <Link href="/singup">
+                                    <a class=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                        Sign up
+                                    </a>
+                                    </Link>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default LoginForm;
