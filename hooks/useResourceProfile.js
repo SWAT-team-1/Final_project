@@ -1,14 +1,16 @@
 import axios from 'axios'
 import useSWR from 'swr'
 
-export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL;
+export const apiUrl = process.env.NEXT_PUBLIC_API_URL_REVIEW;
+const resApiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL
+
 import { useAuth } from '../contexts/auth'
 
 export default function useResource() {
 
     const { tokens, logout } = useAuth()
 
-    const { data, error, mutate } = useSWR([apiUrl], fetchResource);
+    const { data, error, mutate } = useSWR([resApiUrl], fetchResource);
 
     async function fetchResource(url) {
 

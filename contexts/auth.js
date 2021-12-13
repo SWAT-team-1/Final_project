@@ -30,8 +30,8 @@ export function AuthProvider(props) {
         const newState = {
             tokens: response.data,
             user: {
-                email: decodedAccess.user_email,
-                username: decodedAccess.user_name,
+                email: decodedAccess.email,
+                username: decodedAccess.username,
                 phone_number: decodedAccess.phone_number,
                 address: decodedAccess.address,
                 avatar: decodedAccess.avatar,
