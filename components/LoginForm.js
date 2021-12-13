@@ -20,12 +20,12 @@ const LoginForm = () => {
     }
     return (
         <div className="font-sans">
-            <div className="relative flex flex-col items-center min-h-screen bg-green-400 sm:justify-center">
+            <div className="relative flex flex-col items-center min-h-screen bg-gray-800 sm:justify-center">
                 <div className="relative w-full sm:max-w-sm">
-                    <div className="absolute w-full h-full transform bg-blue-400 shadow-lg card rounded-3xl -rotate-6"></div>
-                    <div className="absolute w-full h-full transform bg-red-400 shadow-lg card rounded-3xl rotate-6"></div>
+                    <div className="absolute w-full h-full transform bg-red-500 shadow-lg card rounded-3xl -rotate-6"></div>
+                    <div className="absolute w-full h-full transform bg-yellow-500 shadow-lg card rounded-3xl rotate-6"></div>
                     <div className="relative w-full px-6 py-4 bg-gray-100 shadow-md rounded-3xl">
-                        <label for="" className="block mt-3 text-2xl font-semibold text-center text-gray-700">
+                        <label htmlFor="" className="block mt-3 text-2xl font-semibold text-center text-gray-700">
                             Login
                         </label>
                         <form onSubmit={handleFormSubmit} className="mt-10">
@@ -38,31 +38,27 @@ const LoginForm = () => {
                             </div>
 
                             <div className="flex mt-7">
-                                <label for="remember_me" className="inline-flex items-center w-full cursor-pointer">
+                            <label htmlFor="remember_me" className="inline-flex items-center w-full cursor-pointer">
                                     <input id="remember_me" type="checkbox" className="text-indigo-600 border-gray-300 rounded shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember" />
                                     <span className="ml-2 text-sm text-gray-600">
                                         Remember me
                                     </span>
                                 </label>
 
-                                <div className="w-full text-right">
-                                    <a className="text-sm text-gray-600 underline hover:text-gray-900" href="#">
-                                        Forgot your password?
-                                    </a>
-                                </div>
+                             
                             </div>
 
                             <div className="mt-7">
-                                <button className="w-full py-3 text-white transition duration-500 ease-in-out transform bg-blue-500 shadow-xl rounded-xl hover:shadow-inner focus:outline-none hover:-translate-x hover:scale-105 " type='submit'>
+                                <button className="w-full py-3 text-white transition duration-500 ease-in-out transform bg-gray-800 shadow-xl rounded-xl hover:shadow-inner focus:outline-none hover:-translate-x hover:scale-105 " type='submit'>
                                     Login
                                 </button>
                             </div>
 
-                            <div class="mt-7">
-                                <div class="flex justify-center items-center">
-                                    <label class="mr-2" >Don't have an account? </label>
+                            <div className="mt-7">
+                                <div className="flex items-center justify-center">
+                                    <label className="mr-2" >Don't have an account? </label>
                                     <Link href="/singup">
-                                    <a class=" text-blue-500 transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                    <a className="text-gray-500 transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105">
                                         Sign up
                                     </a>
                                     </Link>
