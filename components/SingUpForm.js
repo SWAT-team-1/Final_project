@@ -58,7 +58,7 @@ export default function SignUp() {
                             <div className="mt-7">
                                 <div className="flex items-center justify-center">
                                     <label className="mr-2" >Do you already have an account?</label>
-                                    <Link href='/login'>
+                                    <Link href='/'>
                                         <a className="text-blue-500 transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105">
                                             Log in
                                         </a>
