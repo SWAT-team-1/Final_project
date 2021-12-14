@@ -1,6 +1,6 @@
 import React from 'react'
 import SingUpForm from '../components/SingUpForm'
-export default function Singup() {
+export default function Signup() {
     return (
         <div>
             <SingUpForm/>
