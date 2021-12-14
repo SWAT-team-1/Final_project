@@ -49,6 +49,9 @@ export default function SignUp() {
                             <div>
                                 <input type="text" id='phone_number' placeholder="+9627912345678" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
                             </div>
+                            <div>
+                                <input type="file" id='phone_number'  className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                            </div>
 
                             <div className="mt-7">
                                 <button className="w-full py-3 text-white transition duration-500 ease-in-out transform bg-gray-800 shadow-xl rounded-xl hover:shadow-inner focus:outline-none hover:-translate-x hover:scale-105 " type='submit'>
