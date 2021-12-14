@@ -17,8 +17,11 @@ export default function Main() {
                         </h2>
 
                         <div className="flex justify-center mt-8">
-                            <a className="px-8 py-2 text-lg font-medium text-white transition-colors duration-300 transform bg-gray-500 rounded hover:bg-gray-700"
-                                href="#">Browse Rentals</a>
+                            <Link href="/browse">
+                            <a className="px-8 py-2 text-lg font-medium text-white transition-colors duration-300 transform bg-gray-500 rounded hover:bg-gray-700">
+                                Browse Rentals
+                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>
