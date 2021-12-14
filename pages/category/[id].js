@@ -1,11 +1,16 @@
 import useResourceProduct from '../../hooks/useResourceProducts'
 import useResource from '../../hooks/useResourceCreateUser'
 import { useRouter } from 'next/router'
+import NavBar from '../../components/navbar'
+import Footer from '../../components/footer'
+import useResourceCategory from '../../hooks/useResourceCategory'
 
 
 export default function category() {
     const { products } = useResourceProduct()
     const { users } = useResource()
+    const { categories } = useResourceCategory()
+
     const router = useRouter()
     const { id } = router.query
     const addToFavourite = (e) => {
@@ -15,15 +20,26 @@ export default function category() {
     }
 
     return (
+        <div className="h-screen">
+          <div className="bg-gray-800">
+                    <NavBar />
+          </div>
         <div className="mt-16">
-            <h3 className="text-2xl font-medium text-gray-600">Category</h3>
-            <div className="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {categories?.map(category => {
+                if (category.id == id){
+
+                
+                return(
+                    <h3 className="ml-10 text-3xl font-medium text-gray-600">{category.category_name} Category</h3>
+                )}
+            })}
+            <div className="grid grid-cols-1 gap-6 mt-6 mb-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
                 {products?.map((product) => {
                         if (id == product.product_category){
                             return (
                                 <div className="w-full max-w-sm mx-auto overflow-hidden bg-gray-100 rounded-md shadow-lg">
-                                    <div className="flex items-start justify-end w-full h-56 p-3 bg-cover" style={{ backgroundImage: "url('/dress.jpg')" }}>
+                                    <div className="flex items-start justify-end w-full h-56 p-3 bg-cover" style={{ backgroundImage: `url(${product.product_img_1})` }}>
                                         <button onClick={addToFavourite} className="mr-2 bg-gray-100 rounded-full">
                                             <svg id="4" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="red">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -59,6 +75,8 @@ export default function category() {
                     }
                 })}
             </div>
+        </div>
+        <Footer/>
         </div>
     )
 }

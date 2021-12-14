@@ -55,7 +55,7 @@ export default function NavBar() {
                         </Link>
                         {user ?
                             <a onClick={logout}
-                                className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-gray-700 hover:text-gray-200">
+                                className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded cursor-pointer hover:bg-gray-700 hover:text-gray-200">
                                 Log out
                             </a>
                             :
@@ -92,7 +92,7 @@ export default function NavBar() {
                     </Link>
                     {user ?
                         <a onClick={logout}
-                            className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-gray-700 hover:text-gray-200">
+                            className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded cursor-pointer hover:bg-gray-700 hover:text-gray-200">
                             Log out
                         </a>
                         :
