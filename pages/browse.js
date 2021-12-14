@@ -1,10 +1,14 @@
 import Footer from "../components/footer"
 import NavBar from "../components/navbar"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import useResourceCategory from '../hooks/useResourceCategory'
+import Router from "next/router"
 
 export default function Browse() {
     const [color, setColor] = useState('none')
-    
+    const { categories } = useResourceCategory()
+    const [category, setCategory] = useState()
+
     const search = (e) => {
         e.preventDefault()
         const value = e.target.search.value
@@ -13,8 +17,15 @@ export default function Browse() {
 
     const selection = (e) => {
         e.preventDefault()
-        const value = e.target.value
-        console.log(value)
+        console.log(e.target.id)
+        let id;
+        if (e.target.value){
+            id = e.target.value
+        }
+        if (e.target.id){
+            id = e.target.id
+        }
+        Router.push('/category/' + id)
     }
 
     const addToFavourite = (e) => {
@@ -44,9 +55,12 @@ export default function Browse() {
                         <div className="relative mt-6 ml-2">
                             <form>
                                 <select onClick={selection} id="select" name="select" className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 bg-gray-200 border rounded-md appearance-none focus:border-blue-500 focus:outline-none focus:shadow-outline" placeholder="Regular input">
-                                    <option value="Tools">Tools</option>
-                                    <option value="Clothes">Clothes</option>
-                                    <option value="Camera equipment">Camera equipment</option>
+                                    {categories?.map(category => {
+                                        return (
+                                            <option value={category.id}>{category.category_name}</option>
+                                        )
+                                    })}
+
                                 </select>
                             </form>
                             <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -60,39 +74,64 @@ export default function Browse() {
                 <div className="container px-6 mx-auto">
                     <div className="h-64 overflow-hidden bg-bottom bg-cover rounded-md" style={{ backgroundImage: "url('/dresses.jpeg')" }}>
                         <div className="flex items-center h-full bg-gray-900 bg-opacity-50">
-                            <div className="max-w-xl px-10">
-                                <h2 className="text-2xl font-semibold text-white">Clothes</h2>
-                                <p className="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
-                                <button className="flex items-center px-3 py-2 mt-4 text-sm font-medium text-white uppercase bg-gray-800 rounded hover:bg-gray-600 focus:outline-none focus:bg-blue-500">
-                                    <span>Rent Now</span>
-                                    <svg className="w-5 h-5 mx-2" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                                </button>
-                            </div>
+                            {categories?.map(category => {
+                                if (category.category_name == 'Clothes') {
+                                    return (
+                                        <div className="max-w-xl px-10">
+                                            <h2 className="text-2xl font-semibold text-white">{category.category_name}</h2>
+                                            <p className="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                            <div onClick={selection}>
+                                                <button className="flex items-center px-3 py-2 mt-4 text-sm font-medium text-white uppercase bg-gray-800 rounded hover:bg-gray-600 focus:outline-none focus:bg-blue-500">
+                                                    <span id={category.id}>Rent Now</span>
+                                                    <svg id={category.id} className="w-5 h-5 mx-2" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                            })}
+
                         </div>
                     </div>
                     <div className="mt-8 md:flex md:-mx-4">
-                        <div className="w-full h-64 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:w-1/2" style={{ backgroundImage: "url('/tools.jpg')" }}>
+                        <div className="w-full h-64 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:w-1/2" style={{ backgroundImage: "url('/Tools.jpg')" }}>
                             <div className="flex items-center h-full bg-gray-900 bg-opacity-50">
-                                <div className="max-w-xl px-10">
-                                    <h2 className="text-2xl font-semibold text-white">Tools</h2>
-                                    <p className="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
-                                    <button className="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
-                                        <span>Rent Now</span>
-                                        <svg className="w-5 h-5 mx-2" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                                    </button>
-                                </div>
+                                {categories?.map(category => {
+                                    if (category.category_name == 'Tools') {
+                                        return (
+                                            <div className="max-w-xl px-10">
+                                                <h2 className="text-2xl font-semibold text-white">{category.category_name}</h2>
+                                                <p className="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                                <div onClick={selection} >
+                                                    <button className="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                                        <span id={category.id}>Rent Now</span>
+                                                        <svg id={category.id} className="w-5 h-5 mx-2" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                })}
                             </div>
                         </div>
-                        <div className="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/2" style={{ backgroundImage: "url('/camera.jpg')" }}>
+                        <div className="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/2" style={{ backgroundImage: "url('/camera equioment.jpg')" }}>
                             <div className="flex items-center h-full bg-gray-900 bg-opacity-50">
-                                <div className="max-w-xl px-10">
-                                    <h2 className="text-2xl font-semibold text-white">Camera Equipment</h2>
-                                    <p className="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
-                                    <button className="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
-                                        <span>Rent Now</span>
-                                        <svg className="w-5 h-5 mx-2" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                                    </button>
-                                </div>
+                                {categories?.map(category => {
+                                    if (category.category_name == 'camera equioment') {
+                                        return (
+                                            <div className="max-w-xl px-10">
+                                                <h2 className="text-2xl font-semibold text-white">{category.category_name}</h2>
+                                                <p className="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                                <div onClick={selection} >
+                                                    <button value={category.id} className="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                                        <span id={category.id}>Rent Now</span>
+                                                        <svg id={category.id} className="w-5 h-5 mx-2" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                })}
                             </div>
                         </div>
                     </div>

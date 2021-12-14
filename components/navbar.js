@@ -17,7 +17,7 @@ export default function NavBar() {
     return (
         <nav className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
             <div className="flex items-center justify-between">
-                <a className="text-xl font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-indigo-400"
+                <a className="text-xl font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-gray-400"
                     href="#">Brand</a>
 
                 <div className="flex md:hidden">
@@ -33,34 +33,34 @@ export default function NavBar() {
             </div>
             <div className={style}>
                 <div className="flex flex-col mt-2 space-y-4 md:space-y-0 md:flex-col md:items-center md:space-x-10 md:mt-0">
-                    <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400"
-                        href="#">
+                    <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400"
+                        href="/">
                         Home
                     </a>
                     <Link href='/browse'>
-                        <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400">
+                        <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400">
                             Browse
                         </a>
                     </Link>
                     <Link href='/About-us'>
-                        <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400">
+                        <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gr-400">
                             About us
                         </a>
                     </Link>
                     <div>
                         <Link href='/signup'>
-                            <a className="px-4 py-1 mr-3 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-indigo-400">
+                            <a className="px-4 py-1 mr-3 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-gray-200 hover:text-gray-800">
                                 Sign up
                             </a>
                         </Link>
                         {user ?
                             <a onClick={logout}
-                                className="px-4 py-1 text-sm font-medium text-center text-indigo-400 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-indigo-400 hover:text-gray-200">
+                                className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-gray-700 hover:text-gray-200">
                                 Log out
                             </a>
                             :
                             <Link href='/login'>
-                                <a className="px-4 py-1 text-sm font-medium text-center text-indigo-400 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-indigo-400 hover:text-gray-200">
+                                <a className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-gray-700 hover:text-gray-200">
                                     Log In
                                 </a>
                             </Link>
@@ -70,34 +70,34 @@ export default function NavBar() {
             </div>
 
             <div className="flex-col hidden mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
-                <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400"
-                    href="#">
+                <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400"
+                    href="/">
                     Home
                 </a>
                 <Link href='/browse'>
-                    <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400">
+                    <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400">
                         Browse
                     </a>
                 </Link>
                 <Link href='/About-us'>
-                    <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-indigo-400">
+                    <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400">
                         About us
                     </a>
                 </Link>
                 <div>
                     <Link href='/signup'>
-                        <a className="px-4 py-1 mr-3 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-indigo-400">
+                        <a className="px-4 py-1 mr-3 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-gray-200 hover:text-gray-800">
                             Sign up
                         </a>
                     </Link>
                     {user ?
                         <a onClick={logout}
-                            className="px-4 py-1 text-sm font-medium text-center text-indigo-400 transition-colors duration-300 transform bg-gray-200 border rounded cursor-pointer hover:bg-indigo-400 hover:text-gray-200">
+                            className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-gray-700 hover:text-gray-200">
                             Log out
                         </a>
                         :
                         <Link href='/login'>
-                            <a className="px-4 py-1 text-sm font-medium text-center text-indigo-400 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-indigo-400 hover:text-gray-200">
+                            <a className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-gray-700 hover:text-gray-200">
                                 Log In
                             </a>
                         </Link>
