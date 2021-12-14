@@ -1,14 +1,15 @@
 import axios from 'axios'
 import useSWR from 'swr'
+
+export const apiUrl = process.env.NEXT_PUBLIC_API_URL_PRODUCT;
 import { useAuth } from '../contexts/auth'
 
-export const apiUrl = process.env.NEXT_PUBLIC_API_URL_REVIEW;
-
-export default  function useResource() {
+export default function useResourceProduct() {
 
     const { tokens, logout } = useAuth()
 
-    const { data, error, mutate } = useSWR([apiUrl], fetchResource)
+    const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
+
     async function fetchResource(url) {
 
         if (!tokens) {
@@ -25,27 +26,7 @@ export default  function useResource() {
         }
     }
 
-
-
-    // const { data,error, mutate } = useSWR([resApiUrl], useResourceFavourite);
-
-    // async function useResourceFavourite(url) {
-    //     if (!tokens) {
-    //         return;
-    //     }
-
-    //     try {
-    //         const response1 = await axios.get(url, config());
-
-    //         return response1.data;
-
-    //     } catch (error) {
-    //         handleError(error);
-    //     }
-    // }
-
-    
-    async function createResource(info) {
+    async function createResourceProduct(info) {
 
         try {
             await axios.post(apiUrl, info, config());
@@ -55,7 +36,7 @@ export default  function useResource() {
         }
     }
 
-    async function deleteResource(id) {
+    async function deleteResourceProduct(id) {
 
         try {
             const url = apiUrl + id;
@@ -91,11 +72,11 @@ export default  function useResource() {
     }
 
     return {
-        resources: data,
+        resources1: data,
         error,
         loading: tokens && !error && !data,
-        createResource,
-        deleteResource,
+        createResourceProduct,
+        deleteResourceProduct,
         updateResource,
     }
 }
