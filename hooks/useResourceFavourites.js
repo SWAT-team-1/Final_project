@@ -10,14 +10,10 @@ export default function useResourceFavourite() {
 
     const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
 
-    async function fetchResource(url) {
-
-        if (!tokens) {
-            return;
-        }
+    async function fetchResource(apiUrl) {
 
         try {
-            const response = await axios.get(url, config());
+            const response = await axios.get(apiUrl);
 
             return response.data;
 

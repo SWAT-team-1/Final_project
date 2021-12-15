@@ -6,22 +6,27 @@ import Footer from '../../components/footer'
 import useResourceCategory from '../../hooks/useResourceCategory'
 import Link from 'next/link'
 import { useAuth } from '../../contexts/auth'
-
+import useResourceFavourite from '../../hooks/useResourceFavourites'
 
 export default function category() {
     const { products } = useResourceProduct()
     const { users } = useResource()
     const { categories } = useResourceCategory()
     const { user } = useAuth();
-
+    const { addFavourite } = useResourceFavourite()
     const router = useRouter()
     const { id } = router.query
     const addToFavourite = (e) => {
         e.preventDefault()
         const value = e.target.id
-        console.log(value)
+        const info = {
+            "user": user.id,
+            "product_favorite": value
+        }
+        addFavourite(info)
     }
 
+    
     return (
         <div className="h-screen">
             <div className="bg-gray-800">
