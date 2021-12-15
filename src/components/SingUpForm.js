@@ -1,6 +1,6 @@
 import React from "react";
 import Link from 'next/link'
-import useResource from '../hooks/useResourceCreateUser'
+import useResource from '../../hooks/useResourceCreateUser'
 export default function SignUp() {
     const { createResource } = useResource();
 

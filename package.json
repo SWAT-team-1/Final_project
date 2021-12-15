@@ -3,19 +3,29 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "react-scripts test --env=jsdom"
   },
   "dependencies": {
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
     "jsonwebtoken": "^8.5.1",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-scripts": "^5.0.0",
     "swr": "^1.1.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
     "autoprefixer": "^10.2.6",
+    "cypress": "^9.1.1",
     "postcss": "^8.3.5",
     "tailwindcss": "^2.2.4"
   }
+
+  
 }
+
+
