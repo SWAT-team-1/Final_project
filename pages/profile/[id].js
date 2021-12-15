@@ -8,18 +8,19 @@ import useResourceProfile from '../../hooks/useResourceProfile'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-
+import useResourceFavourite from '../../hooks/useResourceFavourites'
 
 export default function Profile() {
     const [items, setItems] = useState(0);
     const { createResource, resources } = useResourceProfile();
     const { products, createProduct, deleteProduct } = useResourceProduct()
+    
     const { categories } = useResourceCategory()
     const { users } = useResource()
     const router = useRouter()
     const { id } = router.query
     const { user } = useAuth();
-
+    const { addFavourite } = useResourceFavourite()
     async function CreateReview(event) {
         event.preventDefault();
         const obj = {

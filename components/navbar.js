@@ -38,10 +38,12 @@ export default function NavBar() {
             </div>
             <div className={style}>
                 <div className="flex flex-col mt-2 space-y-4 md:space-y-0 md:flex-col md:items-center md:space-x-10 md:mt-0">
-                    <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400"
-                        href="/">
-                        Home
-                    </a>
+                    <Link href='/'>
+                        <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400"
+                        >
+                            Home
+                        </a>
+                    </Link>
                     <Link href='/browse'>
                         <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400">
                             Browse
@@ -84,10 +86,12 @@ export default function NavBar() {
             </div>
 
             <div className="flex-col hidden mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
-                <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400"
-                    href="/">
-                    Home
-                </a>
+                <Link href='/'>
+                    <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400"
+                    >
+                        Home
+                    </a>
+                </Link>
                 <Link href='/browse'>
                     <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400">
                         Browse
@@ -101,8 +105,14 @@ export default function NavBar() {
                 <div>
                     {user ?
                         <div>
+                            <Link href='/favorite'>
+                                <a className="mr-6 text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400"
+                                >
+                                    Favorite
+                                </a>
+                            </Link>
                             <Link href='/Profile'>
-                                <a className="mr-2 -ml-3 text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400">
+                                <a className="ml-3 mr-4 text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400">
                                     Profile
                                 </a>
                             </Link>
@@ -123,6 +133,7 @@ export default function NavBar() {
                                     Log In
                                 </a>
                             </Link>
+
                         </div>
                     }
                 </div>

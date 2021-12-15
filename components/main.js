@@ -56,7 +56,7 @@ export default function Main() {
                             <div className="flex items-center justify-center">
                                 <div className="mx-auto">
                                     <img className="object-cover object-center w-full rounded-md shadow" style={{ height: "500px" }}
-                                        src="/way2.jpg" />
+                                        src="/way.jpg" />
                                 </div>
                             </div>
                         </div>
