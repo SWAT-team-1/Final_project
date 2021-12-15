@@ -49,7 +49,7 @@ export default function NavBar() {
                             Browse
                         </a>
                     </Link>
-                    <Link href='/About-us'>
+                    <Link href='/aboutUs'>
                         <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gr-400">
                             About us
                         </a>
@@ -97,7 +97,7 @@ export default function NavBar() {
                         Browse
                     </a>
                 </Link>
-                <Link href='/About-us'>
+                <Link href='/aboutUs'>
                     <a className="text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400">
                         About us
                     </a>
