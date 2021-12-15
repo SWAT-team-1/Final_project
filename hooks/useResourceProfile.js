@@ -6,7 +6,7 @@ export const apiUrl = process.env.NEXT_PUBLIC_API_URL_REVIEW;
 
 export default  function useResourceProfile() {
 
-    const { tokens, logout } = useAuth()
+    const { logout } = useAuth()
 
     const { data, error, mutate } = useSWR([apiUrl], fetchResource)
     async function fetchResource(apiUrl) {
