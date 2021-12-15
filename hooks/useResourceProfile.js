@@ -4,19 +4,15 @@ import { useAuth } from '../contexts/auth'
 
 export const apiUrl = process.env.NEXT_PUBLIC_API_URL_REVIEW;
 
-export default  function useResource() {
+export default  function useResourceProfile() {
 
-    const { tokens, logout } = useAuth()
+    const { logout } = useAuth()
 
     const { data, error, mutate } = useSWR([apiUrl], fetchResource)
-    async function fetchResource(url) {
-
-        if (!tokens) {
-            return;
-        }
+    async function fetchResource(apiUrl) {
 
         try {
-            const response = await axios.get(url, config());
+            const response = await axios.get(apiUrl);
 
             return response.data;
 
@@ -93,7 +89,7 @@ export default  function useResource() {
     return {
         resources: data,
         error,
-        loading: tokens && !error && !data,
+        loading: !error && !data,
         createResource,
         deleteResource,
         updateResource,

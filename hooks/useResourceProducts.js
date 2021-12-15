@@ -6,9 +6,9 @@ import { useAuth } from '../contexts/auth'
 
 export default function useResourceProduct() {
 
-    const { logout } = useAuth()
+    const { tokens, logout } = useAuth()
 
-    const { data, error, mutate } = useSWR([apiUrl], fetchResource);
+    const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
 
     async function fetchResource(apiUrl) {
 
