@@ -8,10 +8,10 @@ export default function useResourceFavourite() {
 
     const { tokens, logout } = useAuth()
 
-    const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
+    const { data, error, mutate } = useSWR([apiUrl], fetchResource);
 
     async function fetchResource(apiUrl) {
-
+     
         try {
             const response = await axios.get(apiUrl);
 
