@@ -10,10 +10,10 @@ export default function Main() {
         <div>
             <header className="bg-gray-800">
                 <NavBar />
-                <section className="flex items-center justify-center" style={{ height: "500px" }}>
+                <section className="flex items-center justify-center bg-gray-800 bg-opacity-50 bg-center bg-cover" style={{ backgroundImage: "url(/hero1.jpg)", height: "700px" }}>
                     <div className="text-center">
                         <h2 className="mt-6 text-3xl font-bold text-white md:text-5xl">Borrow Almost Anything.<br />
-                            Or <span className='text-gray-500'>Earn Money</span> Renting out your Items.
+                            Or <span className='text-yellow-500'>Earn Money</span> Renting out your Items.
                         </h2>
 
                         <div className="flex justify-center mt-8">
@@ -32,7 +32,7 @@ export default function Main() {
                     <div className="items-center justify-between w-full mx-auto md:flex md:space-x-6">
                         <div className="mx-auto">
                             <h3 className="text-4xl font-semibold text-center text-gray-800">About</h3>
-                            <p className="max-w-md mt-8 text-xl text-center text-gray-700 text-hight-2 sm:text-left">
+                            <p className="max-w-md mt-8 text-2xl text-center text-gray-700 text-hight-2 sm:text-left">
                                 Many people can't afford to purchase everything new. With Rentaxon, now you can just borrow something for a few days, that help you to save your money instead of buying it.Also,Try something yourself and decide whether it's time to purchase.
                             </p>
                         </div>
@@ -62,9 +62,9 @@ export default function Main() {
                         </div>
                         <div className="mx-auto mt-8 md:mt-0 md:w-1/2">
                             <h3 className="text-4xl font-semibold text-center text-gray-800 sm:text-left">A safer way to rent</h3>
-                            <p className="max-w-md mt-4 text-xl text-gray-700">Fully vetted community</p>
-                            <p className="max-w-md mt-4 text-xl text-gray-700">Liability waiver</p>
-                            <p className="max-w-md mt-4 text-xl text-gray-700">Personal liability guarantee</p>
+                            <p className="max-w-md mt-4 text-2xl text-gray-700">Fully vetted community</p>
+                            <p className="max-w-md mt-4 text-2xl text-gray-700">Liability waiver</p>
+                            <p className="max-w-md mt-4 text-2xl text-gray-700">Personal liability guarantee</p>
                         </div>
                     </div>
                 </div>
@@ -109,10 +109,11 @@ export default function Main() {
                             return (
                                     <Link href={'/category/' + category.id}
                                       key={category.id}>
-                                    <div className="cursor-pointer">
+                                    <div className="relative cursor-pointer">
                                     <img className="object-cover object-center w-full h-64 rounded-md shadow"
                                         src={'/' + category.category_name + '.jpg'}/>
-                                    <h3 className="-mt-10 text-2xl font-medium text-gray-100">{category.category_name}</h3>
+                                        <div className="absolute object-cover object-center w-full h-64 -mt-64 bg-gray-800 bg-opacity-50 rounded-md hover:hidden"></div>
+                                    <h3 className="absolute w-full mx-auto -mt-32 text-2xl font-medium text-center text-gray-200">{category.category_name}</h3>
                                     </div>
                                     </Link>
                             )

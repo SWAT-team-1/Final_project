@@ -6,12 +6,12 @@ export default function Footer() {
       <footer className="inset-x-0 bottom-0 text-gray-600 bg-gray-700 body-font">
         <div className="container flex flex-col flex-wrap justify-between px-5 py-16 mx-auto md:flex-row md:flex-nowrap">
           <div className="flex-shrink-0 w-64 mx-auto mb-10 text-center md:mx-0 md:text-left">
-            <a className="flex items-center justify-center font-medium text-gray-900 title-fon">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 p-2 text-white bg-red-700 rounded-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
+            <Link href='/'>
+            <a className="flex items-center justify-center font-medium text-gray-900 cursor-pointer title-fon">
+              <img className="w-28 h-28" src='/Rentaxon-logos.png'/>
             </a>
-            <div className="flex justify-around mt-10">
+            </Link>
+            <div className="flex justify-around mt-2">
               <a className="text-gray-100 hover:text-gray-500" href="" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-facebook" viewBox="0 0 16 16">
                 <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
               </svg>
@@ -29,8 +29,8 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
-            <h2 className="mb-3 font-bold tracking-widest text-white title-font text-md">Links</h2>
-            <nav className="mb-10 list-none">
+            <h2 className="mb-3 font-bold tracking-widest text-center text-white title-font text-md">Links</h2>
+            <nav className="mb-10 text-center list-none">
               <li>
                 <Link href="/">
                 <a className="text-white hover:text-red-300">Home</a>

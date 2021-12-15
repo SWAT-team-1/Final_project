@@ -13,7 +13,6 @@ export default function SignUp() {
             'phone_number': event.target.phone_number.value,
             'address': event.target.address.value,
         }
-        console.log(obj)
         createResource(obj)
     }
     return (
@@ -58,7 +57,7 @@ export default function SignUp() {
                             <div className="mt-7">
                                 <div className="flex items-center justify-center">
                                     <label className="mr-2" >Do you already have an account?</label>
-                                    <Link href='/'>
+                                    <Link href='/login'>
                                         <a className="text-blue-500 transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105">
                                             Log in
                                         </a>

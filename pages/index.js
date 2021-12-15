@@ -6,7 +6,8 @@ export default function Home() {
   return (
     <div className="h-screen">
       <Head>
-        <title>Final Project</title>
+        <title>Rentaxon</title>
+        <link rel="icon" href="/Rentaxon-logos.png" />
       </Head>
 
       <main className="w-full">

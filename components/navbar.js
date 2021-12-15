@@ -17,9 +17,14 @@ export default function NavBar() {
     return (
         <nav className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
             <div className="flex items-center justify-between">
-                <a className="text-xl font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-gray-400"
-                    href="#">Brand</a>
-
+                <Link href="/">
+                    <div className='flex items-center justify-center cursor-pointer'>
+                        <img className='w-10 h-10' src="/Rentaxon-logos.png" />
+                        <p className="text-xl font-bold text-white transition-colors duration-300 transform md:text-2xl hover:text-gray-400">
+                            Rentaxon
+                        </p>
+                    </div>
+                </Link>
                 <div className="flex md:hidden">
                     <button onClick={changeStyle} type="button" className="text-gray-200 hover:text-gray-400 focus:outline-none focus:text-gray-400"
                         aria-label="toggle menu">
@@ -48,22 +53,31 @@ export default function NavBar() {
                         </a>
                     </Link>
                     <div>
-                        <Link href='/signup'>
-                            <a className="px-4 py-1 mr-3 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-gray-200 hover:text-gray-800">
-                                Sign up
-                            </a>
-                        </Link>
                         {user ?
-                            <a onClick={logout}
-                                className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded cursor-pointer hover:bg-gray-700 hover:text-gray-200">
-                                Log out
-                            </a>
-                            :
-                            <Link href='/login'>
-                                <a className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-gray-700 hover:text-gray-200">
-                                    Log In
+                            <div>
+                                <Link href='/Profile'>
+                                    <a className="mr-2 -ml-3 text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400">
+                                        Profile
+                                    </a>
+                                </Link>
+                                <a onClick={logout}
+                                    className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded cursor-pointer hover:bg-gray-700 hover:text-gray-200">
+                                    Log out
                                 </a>
-                            </Link>
+                            </div>
+                            :
+                            <div>
+                                <Link href='/signup'>
+                                    <a className="px-4 py-1 mr-3 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-gray-200 hover:text-gray-800">
+                                        Sign up
+                                    </a>
+                                </Link>
+                                <Link href='/login'>
+                                    <a className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-gray-700 hover:text-gray-200">
+                                        Log In
+                                    </a>
+                                </Link>
+                            </div>
                         }
                     </div>
                 </div>
@@ -85,22 +99,31 @@ export default function NavBar() {
                     </a>
                 </Link>
                 <div>
-                    <Link href='/signup'>
-                        <a className="px-4 py-1 mr-3 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-gray-200 hover:text-gray-800">
-                            Sign up
-                        </a>
-                    </Link>
                     {user ?
-                        <a onClick={logout}
-                            className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded cursor-pointer hover:bg-gray-700 hover:text-gray-200">
-                            Log out
-                        </a>
-                        :
-                        <Link href='/login'>
-                            <a className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-gray-700 hover:text-gray-200">
-                                Log In
+                        <div>
+                            <Link href='/Profile'>
+                                <a className="mr-2 -ml-3 text-sm font-medium text-gray-200 transition-colors duration-300 transform hover:text-gray-400">
+                                    Profile
+                                </a>
+                            </Link>
+                            <a onClick={logout}
+                                className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded cursor-pointer hover:bg-gray-700 hover:text-gray-200">
+                                Log out
                             </a>
-                        </Link>
+                        </div>
+                        :
+                        <div>
+                            <Link href='/signup'>
+                                <a className="px-4 py-1 mr-3 text-sm font-medium text-center text-gray-200 transition-colors duration-300 transform border rounded hover:bg-gray-200 hover:text-gray-800">
+                                    Sign up
+                                </a>
+                            </Link>
+                            <Link href='/login'>
+                                <a className="px-4 py-1 text-sm font-medium text-center text-gray-800 transition-colors duration-300 transform bg-gray-200 border rounded hover:bg-gray-700 hover:text-gray-200">
+                                    Log In
+                                </a>
+                            </Link>
+                        </div>
                     }
                 </div>
             </div>

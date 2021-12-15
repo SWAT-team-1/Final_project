@@ -9,8 +9,6 @@ const LoginForm = () => {
 
         let email = e.target.elements.user_email.value;
         let password = e.target.elements.password.value;
-        console.log(email , password)
-
         login(email,password)
     };
 

@@ -50,6 +50,7 @@ export function AuthProvider(props) {
             user: null,
         }
         setState(prevState => ({ ...prevState, ...newState }));
+        Router.push('/')
     }
 
     return (
