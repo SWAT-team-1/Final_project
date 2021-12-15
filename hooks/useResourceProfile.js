@@ -21,25 +21,6 @@ export default  function useResourceProfile() {
         }
     }
 
-
-
-    // const { data,error, mutate } = useSWR([resApiUrl], useResourceFavourite);
-
-    // async function useResourceFavourite(url) {
-    //     if (!tokens) {
-    //         return;
-    //     }
-
-    //     try {
-    //         const response1 = await axios.get(url, config());
-
-    //         return response1.data;
-
-    //     } catch (error) {
-    //         handleError(error);
-    //     }
-    // }
-
     
     async function createResource(info) {
 
