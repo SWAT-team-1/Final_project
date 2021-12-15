@@ -203,8 +203,8 @@ export default function Browse() {
                                                     return (
                                                         <Link href={'/profile/' + user.id}>
                                                               <div className="flex items-center justify-start mt-2">
-                                                                <div className='bg-gray-800 rounded-full w-14 h-14'>
-                                                                    <p className='mt-3 text-2xl text-center text-gray-200'>{user.user_name[0]}{user.user_name[1]}</p>
+                                                                <div className='w-20 h-20 bg-gray-800 rounded-full'>
+                                                                    <p className='mt-4 text-3xl text-center text-gray-200'>{user.user_name[0]}{user.user_name[1]}</p>
                                                                 </div>
                                                                 <p className="ml-3 text-xl text-gray-700">{user.user_name}</p>
                                                             </div>
