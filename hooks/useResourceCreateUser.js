@@ -2,7 +2,7 @@ import axios from 'axios'
 import useSWR from 'swr'
 import Router from 'next/router'
 export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL;
-import { useAuth } from '../contexts/auth'
+import { useAuth } from '../src/contexts/auth'
 
 
 export default function useResource() {

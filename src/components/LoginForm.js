@@ -30,7 +30,7 @@ const LoginForm = () => {
                         </label>
                         <form onSubmit={handleFormSubmit} className="mt-10">
                             <div>
-                                <input type="email" id ="user_email"placeholder="mai@gmail.com" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                <input type="email" id ="user_email" data-testid="email-input" placeholder="mai@gmail.com" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
                             </div>
 
                             <div className="mt-7">
