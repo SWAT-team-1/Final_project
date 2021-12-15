@@ -37,6 +37,7 @@ export default function category() {
                 })}
                 <div className="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {products?.map(product => {
+                        if(product.product_category == id){
                         return (
                             <div className="w-full max-w-sm mx-auto overflow-hidden bg-gray-100 rounded-md shadow-lg cursor-pointer">
                                 <Link href={'/product/' + product.id}>
@@ -86,8 +87,8 @@ export default function category() {
                                             return (
                                                 <Link href={'/profile/' + user.id}>
                                                     <div className="flex items-center justify-start mt-2">
-                                                        <div className='w-20 h-20 bg-gray-800 rounded-full'>
-                                                            <p className='mt-4 text-3xl text-center text-gray-200'>{user.user_name[0]}{user.user_name[1]}</p>
+                                                        <div className='bg-gray-800 rounded-full w-14 h-14'>
+                                                            <p className='mt-2 text-2xl text-center text-gray-200'>{user.user_name[0]}{user.user_name[1]}</p>
                                                         </div>
                                                         <p className="ml-3 text-xl text-gray-700">{user.user_name}</p>
                                                     </div>
@@ -97,7 +98,7 @@ export default function category() {
                                     })}
                                 </div>
                             </div>
-                        )
+                        )}
                     })}
                 </div>
             </div>
