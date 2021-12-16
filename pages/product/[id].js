@@ -89,7 +89,7 @@ export default function Product() {//here just waiting to props to be added to f
                                                     return (
                                                         <Link href={'/profile/' + user.id}>
                                                         <div className='flex items-center justify-center cursor-pointer'>
-                                                            <div src={user.avatar} className='w-20 h-20 mx-auto bg-gray-800 rounded-full'>
+                                                            <div src={user.avatar} className='w-20 h-20 bg-gray-800 rounded-full'>
                                                                 <h3 className='mt-5 text-2xl text-center text-gray-200'>{user.user_name[0]}{user.user_name[1]}</h3>
                                                             </div>
                                                             <p className='ml-2 text-xl text-center'>{user.user_name}</p>

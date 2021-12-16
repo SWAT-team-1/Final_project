@@ -12,6 +12,7 @@ export default function SignUp() {
             "user_name": event.target.user_name.value,
             'phone_number': event.target.phone_number.value,
             'address': event.target.address.value,
+            'avatar': event.target.avatar.value
         }
         createResource(obj)
     }
@@ -28,25 +29,31 @@ export default function SignUp() {
                         </label>
                         <form onSubmit={onCreate} className="mt-10">
                             <div>
-                                <input type="text" id='user_name' placeholder="username" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                <input type="text" id='user_name' placeholder="username" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
                             </div>
 
                             <div className="mt-7">
-                                <input type="email" id="user_email" placeholder="Enter your email" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                <input type="email" id="user_email" placeholder="Enter your email" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
                             </div>
 
                             <div className="mt-7">
-                                <input type="password" id="password1" placeholder="Password" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                <input type="password" id="password1" placeholder="Password" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
                                 <input type="password" id="password2" placeholder="Password confirmation" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
                             </div>
                             <div className="mt-7">
                                
                             </div>
                             <div>
-                                <input type="text" id='address' placeholder="address" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                <input type="text" id='address' placeholder="address" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
                             </div>
                             <div>
-                                <input type="text" id='phone_number' placeholder="+9627912345678" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                <input type="text" id='phone_number' placeholder="+9627912345678" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
+                            </div>
+                            <div className="mt-7">
+                               
+                            </div>
+                            <div>
+                                <input type="url" id='avatar' placeholder="Image url" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
                             </div>
 
                             <div className="mt-7">
