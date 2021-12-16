@@ -14,7 +14,7 @@ export default function Profile() {
     const [items, setItems] = useState(0);
     const { createResource, resources } = useResourceProfile();
     const { products, createProduct, deleteProduct } = useResourceProduct()
-    
+
     const { categories } = useResourceCategory()
     const { users } = useResource()
     const router = useRouter()
@@ -33,15 +33,15 @@ export default function Profile() {
         createResource(obj)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         let items = 0;
-        products?.map( product =>{
-            if(product.product_owner == id){
+        products?.map(product => {
+            if (product.product_owner == id) {
                 items++
             }
             setItems(items)
         })
-    },[])
+    }, [])
     const addToFavourite = (e) => {
         e.preventDefault()
         const value = e.target.id
@@ -96,11 +96,11 @@ export default function Profile() {
                                             {userI.user_name}
                                         </h1>
                                         <div className="flex items-center text-3xl text-blue-500 jusrify-center">
-                                        <svg height="32" version="1.1" viewBox="0 0 768 768" width="32" xmlns="http://www.w3.org/2000/svg"><title/><path d="M579.008 260.496l-45.008-162.992-262.992 74 41.984 162.992z" fill="#0096FF"/>
-                                        <path d="M245.968 436.352l0.032 0.144 42.992-12.992-104-404h-177.984v56.992h128.768l90.72 365.76z" fill="#0096FF"/><path d="M749.376 497.104l-5.376-22.608-274.336 76.32 21.2 66.528 270.128-78.688-9.984-42z" fill="#0096FF"/>
-                                        <path d="M408.496 529.392l19.52-19.52-35.392-35.408-19.504 19.536c-11.344-7.52-24.016-13.12-37.568-16.64v-29.168h-62.816v29.168c-13.84 3.584-26.8 9.344-38.336 17.104l-18.72-18.736-35.392 35.392 19.040 19.040c-7.28 11.136-12.736 23.568-16.176 36.784h-29.152v62.784h29.152c3.52 13.552 9.12 26.256 16.656 37.616l-19.52 19.504 35.392 35.376 19.52-19.52c11.376 7.552 24.096 13.168 37.68 16.672v29.12h62.576v-29.12c13.28-3.408 25.712-8.912 36.896-16.176l20.288 20.272 35.392-35.36-19.984-20.016c7.808-11.6 13.6-24.64 17.152-38.544h29.12v-62.368h-29.12c-3.504-13.616-9.12-26.384-16.704-37.792zM304.16 649.824c-28.432 0-51.472-23.040-51.472-51.488 0-28.416 23.040-51.472 51.472-51.472 28.416 0 51.472 23.040 51.472 51.472 0 28.448-23.056 51.488-51.472 51.488z" fill="#0096FF"/>
-                                        <path d="M342.848 442.256c63.344-11.248 95.648 32.448 95.648 32.448 0.112 0.112 0.224 0.224 0.336 0.336 0.48 0.512 0.864 0.992 1.312 1.488 6.352 7.84 10.944 19.44 10.944 19.44l2.672 8.384 307.248-84.864-44-163.008-394 108 19.84 77.776z" fill="#0096FF"/>
-                                        </svg>
+                                            <svg height="32" version="1.1" viewBox="0 0 768 768" width="32" xmlns="http://www.w3.org/2000/svg"><title /><path d="M579.008 260.496l-45.008-162.992-262.992 74 41.984 162.992z" fill="#0096FF" />
+                                                <path d="M245.968 436.352l0.032 0.144 42.992-12.992-104-404h-177.984v56.992h128.768l90.72 365.76z" fill="#0096FF" /><path d="M749.376 497.104l-5.376-22.608-274.336 76.32 21.2 66.528 270.128-78.688-9.984-42z" fill="#0096FF" />
+                                                <path d="M408.496 529.392l19.52-19.52-35.392-35.408-19.504 19.536c-11.344-7.52-24.016-13.12-37.568-16.64v-29.168h-62.816v29.168c-13.84 3.584-26.8 9.344-38.336 17.104l-18.72-18.736-35.392 35.392 19.040 19.040c-7.28 11.136-12.736 23.568-16.176 36.784h-29.152v62.784h29.152c3.52 13.552 9.12 26.256 16.656 37.616l-19.52 19.504 35.392 35.376 19.52-19.52c11.376 7.552 24.096 13.168 37.68 16.672v29.12h62.576v-29.12c13.28-3.408 25.712-8.912 36.896-16.176l20.288 20.272 35.392-35.36-19.984-20.016c7.808-11.6 13.6-24.64 17.152-38.544h29.12v-62.368h-29.12c-3.504-13.616-9.12-26.384-16.704-37.792zM304.16 649.824c-28.432 0-51.472-23.040-51.472-51.488 0-28.416 23.040-51.472 51.472-51.472 28.416 0 51.472 23.040 51.472 51.472 0 28.448-23.056 51.488-51.472 51.488z" fill="#0096FF" />
+                                                <path d="M342.848 442.256c63.344-11.248 95.648 32.448 95.648 32.448 0.112 0.112 0.224 0.224 0.336 0.336 0.48 0.512 0.864 0.992 1.312 1.488 6.352 7.84 10.944 19.44 10.944 19.44l2.672 8.384 307.248-84.864-44-163.008-394 108 19.84 77.776z" fill="#0096FF" />
+                                            </svg>
                                             <span className="my-2 ml-2">{items} Items</span>
                                         </div>
                                         <div className="flex items-center text-3xl text-blue-500 jusrify-center">
@@ -177,55 +177,64 @@ export default function Profile() {
 
 
                                     {resources?.map((review) => {
-                                    if(review.reviewed == id){
-                                        return(
-                                        users?.map(userII =>{
-                                            
-                                            if(userII.id === review.auther){
-                                                
-                                                return (
+                                        if (review.reviewed == id) {
+                                            return (
+                                                users?.map(userII => {
 
-                                                    <>
-                                                        <div className="p-3 bg-white rounded-sm shadow-sm">
-                                                            <div className="flex items-end p-4 bg-gray-200 rounded-sm shadow-sm">
-            
-                                                                <div className="flex-shrink-0">
-                                                                    <div className="relative inline-block">
-                                                                        <div className="relative w-16 h-16 mt-3 overflow-hidden rounded-full">
-                                                                            <img className="absolute top-0 left-0 object-cover w-full h-full bg-cover object-fit" src={userII.avatar} alt="Profile picture" />
-                                                                            <div className="absolute top-0 left-0 w-full h-full rounded-full shadow-inner"></div>
+                                                    if (userII.id === review.auther) {
+
+                                                        return (
+
+                                                            <>
+                                                                <div className="p-3 bg-white rounded-sm shadow-sm">
+                                                                    <div className="flex items-end p-4 bg-gray-200 rounded-sm shadow-sm">
+
+                                                                        <div className="flex-shrink-0">
+                                                                            <div className="relative inline-block">
+
+                                                                                {userII.avatar ?
+                                                                                    <div className="relative w-16 h-16 mt-3 overflow-hidden rounded-full">
+                                                                                        <img className="absolute top-0 left-0 object-cover w-full h-full bg-cover object-fit" src={userII.avatar} alt="Profile picture" />
+                                                                                    </div>
+                                                                                    :
+                                                                                    <div className='w-16 h-16 bg-gray-800 rounded-full'>
+                                                                                        <p className='py-3 text-2xl text-center text-gray-200'>{userII.user_name[0]}{userII.user_name[1]}</p>
+                                                                                    </div>
+                                                                                }
+
+                                                                                <div className="absolute top-0 left-0 w-full h-full rounded-full shadow-inner"></div>
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div className="ml-6">
+                                                                            <div>
+
+                                                                                <p>
+                                                                                    {review.review_content}
+                                                                                </p>
+
+                                                                            </div>
+                                                                            <div className="mt-3">
+                                                                                <span className="font-bold text-gray-600">
+                                                                                    {userII.user_name}
+                                                                                </span>
+                                                                            </div>
+                                                                            <div className="flex items-center mt-4 text-gray-600">
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+
+
                                                                 </div>
-            
-                                                                <div className="ml-6">
-                                                                    <div>
-            
-                                                                        <p>
-                                                                            {review.review_content}
-                                                                        </p>
-            
-                                                                    </div>
-                                                                    <div className="mt-3">
-                                                                        <span className="font-bold text-gray-600">
-                                                                            {userII.user_name}
-                                                                        </span>
-                                                                    </div>
-                                                                    <div className="flex items-center mt-4 text-gray-600">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-            
-            
-                                                        </div>
-                                                    </>
-                                                )
-                                            }
-                                        
-                                        })
-                                        )
-                                    }
-                                })}
+                                                            </>
+                                                        )
+                                                    }
+
+                                                })
+                                            )
+                                        }
+                                    })}
 
 
 
