@@ -6,9 +6,8 @@ import Footer from '../components/footer';
 import NavBar from '../components/navbar'
 import React from 'react';
 import { useState, useEffect } from 'react'
-import Router from 'next/router';
-import useSWR from 'swr';
 import useResource from '../hooks/useResourceCreateUser'
+import Link from 'next/link'
 
 export default function Profile() {
     const [showModal, setShowModal] = React.useState(false);
@@ -39,9 +38,9 @@ export default function Profile() {
             "product_location": event.target.product_location.value,
             'product_description': event.target.product_des.value,
             'product_price': event.target.price.value,
-            'product_img_1': "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6356/6356535_sd.jpg",
-            'product_img_2': "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6356/6356535_sd.jpg",
-            'product_img_3': "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6356/6356535_sd.jpg",
+            'product_img_1': event.target.product_img1.value,
+            'product_img_2': event.target.product_img1.value,
+            'product_img_3': event.target.product_img1.value,
             'product_category': event.target.select.value,
             "product_owner": user.id,
         }
@@ -259,10 +258,23 @@ export default function Profile() {
                                                                 <span className="my-2 ml-2">{product.product_location}</span>
                                                             </div>
                                                         </div>
-                                                        <div className="flex items-center justify-start mt-2">
-                                                            <img src="/moayad.jpg" className="rounded-full w-14 h-14" />
-                                                            <p className="ml-3 text-xl text-gray-700">{user.username}</p>
-                                                        </div>
+                                                        {user.avatar ?
+                                                            <Link href={'/profile/' + user.id}>
+                                                            <div className="flex items-center justify-start mt-2">
+                                                                <img src={user.avatar} className="rounded-full w-14 h-14" />
+                                                                <p className="ml-3 text-xl text-gray-700">{user.user_name}</p>
+                                                            </div>
+                                                        </Link>
+                                                        :
+                                                        <Link href={'/profile/' + user.id}>
+                                                              <div className="flex items-center justify-start mt-2">
+                                                                <div className='bg-gray-800 rounded-full w-14 h-14'>
+                                                                    <p className='mt-3 text-2xl text-center text-gray-200'>{user.username[0]}{user.username[1]}</p>
+                                                                </div>
+                                                                <p className="ml-3 text-xl text-gray-700">{user.username}</p>
+                                                            </div>
+                                                        </Link>
+                                                        }
                                                     </div>
                                                 </div>
                                             )
@@ -315,14 +327,14 @@ export default function Profile() {
                                                         </label>
                                                         <form className="mt-10" onSubmit={CreateItem}>
                                                             <div>
-                                                                <input type="text" id='product_name' placeholder="Product Name" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                                                <input type="text" id='product_name' placeholder="Product Name" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
                                                             </div>
 
                                                             <div className="mt-7">
-                                                                <input type="text" id="product_des" placeholder="Product Description" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                                                <input type="text" id="product_des" placeholder="Product Description" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
                                                             </div>
                                                             <div className="relative ml-2 mt-7">
-                                                                <select name="select" className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 bg-gray-200 border rounded-md appearance-none focus:border-blue-500 focus:outline-none focus:shadow-outline" placeholder="Regular input">
+                                                                <select name="select" className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 bg-gray-200 border rounded-md appearance-none focus:border-blue-500 focus:outline-none focus:shadow-outline" placeholder="Regular input" required>
                                                                     {categories?.map(category => {
                                                                         return (
                                                                             <option value={category.id}>{category.category_name}</option>
@@ -335,20 +347,20 @@ export default function Profile() {
                                                                 </div>
                                                             </div>
                                                             <div className="mt-7">
-                                                                <input type="text" id="product_location" placeholder="Proudct Location" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                                                <input type="text" id="product_location" placeholder="Proudct Location" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
 
-                                                                <input type="number" id="price" placeholder="Price" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                                                <input type="number" id="price" placeholder="Price" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
                                                             </div>
                                                             <div className="mt-7">
 
                                                             </div>
 
                                                             <div>
-                                                                <input type="file" id='product_img1' className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                                                <input type="url" id='product_img1' placeholder="Product Image 1" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
 
-                                                                <input type="file" id='product_img2' className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                                                <input type="url" id='product_img2' placeholder="Product Image 2" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
 
-                                                                <input type="file" id='product_img3' className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" />
+                                                                <input type="url" id='product_img3' placeholder="Product Image 3" className="block w-full px-3 mt-1 bg-gray-100 border-none shadow-lg h-11 rounded-xl hover:bg-blue-100 focus:bg-blue-100 focus:ring-0" required/>
                                                             </div>
 
                                                             <div className="mt-7">
