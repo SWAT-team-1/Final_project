@@ -4,10 +4,10 @@ import SingUpForm from '../components/SingUpForm'
 export default function Signup() {
     return (
         <div>
-            <Head>
+            {/* <Head>
                 <title>Rentaxon</title>
                 <link rel="icon" href="/Rentaxon-logos.png" />
-            </Head>
+            </Head> */}
             <SingUpForm/>
         </div>
     )

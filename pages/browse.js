@@ -51,10 +51,10 @@ export default function Browse() {
 
     return (
         <>
-            <Head>
+            {/* <Head>
                 <title>Rentaxon</title>
                 <link rel="icon" href="/Rentaxon-logos.png" />
-            </Head>
+            </Head> */}
             <div className="bg-white">
                 <header>
                     <div className="bg-gray-800">
@@ -74,7 +74,8 @@ export default function Browse() {
                         <div>
                             <div className="relative mt-6 ml-2">
                                 <form>
-                                    <select onClick={selection} name="select" className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 bg-gray-200 border rounded-md appearance-none focus:border-blue-500 focus:outline-none focus:shadow-outline" placeholder="Regular input">
+                                    <select onChange={selection} name="select" className="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 bg-gray-200 border rounded-md appearance-none focus:border-blue-500 focus:outline-none focus:shadow-outline" placeholder="Regular input">
+                                    <option hidden>Select category</option>
                                         {categories?.map(category => {
                                             return (
                                                 <option value={category.id}>{category.category_name}</option>
