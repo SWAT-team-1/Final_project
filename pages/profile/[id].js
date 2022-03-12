@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import useResourceProduct from '../../hooks/useResourceProducts'
 import useResourceCategory from '../../hooks/useResourceCategory'
 import { useAuth } from '../../contexts/auth'
@@ -65,29 +66,33 @@ export default function Profile() {
 
     return (
         <div>
+            <Head>
+                <title>Rentaxon</title>
+                <link rel="icon" href="/Rentaxon-logos.png" />
+            </Head>
             <div className="bg-gray-800">
                 <NavBar />
             </div>
             {users?.map(userI => {
                 if (userI.id == id) {
                     return (
-                        <div className="container mx-auto my-5 p-70">
+                        <div className="container p-5 mx-auto my-5">
                             <div className="md:flex no-wrap md:-mx-2 ">
 
                                 {/* <!-- Left Side --> */}
 
 
                                 {/* <!-- Profile Card --> */}
-                                <div className="w-full md:w-3/12 md:mx-2 ">
-                                    <div className="p-3 ml-20 bg-white border-t-4 border-blue-400">
+                                <div className="w-full md:w-3/12 md:mx-2">
+                                    <div className="p-3 bg-white border-t-4 border-blue-400">
                                         {userI.avatar ?
                                             <div className="overflow-hidden image">
-                                                <img className="mx-auto rounded-full w-60 h-60"
+                                                <img className="mx-auto rounded-full h-60 w-60 md:h-32 md:w-32 lg:h-60 lg:w-60"
                                                     src={userI.avatar}
                                                     alt="avatar" />
                                             </div>
                                             : <div className="flex items-center justify-center mt-2">
-                                                <div className='bg-gray-800 rounded-full w-60 h-60'>
+                                                <div className='mx-auto bg-gray-800 rounded-full h-60 w-60'>
                                                     <p className='mt-16 text-center text-gray-200 text-8xl'>{userI.user_name[0]}{userI.user_name[1]}</p>
                                                 </div>
                                             </div>
@@ -190,21 +195,20 @@ export default function Profile() {
                                                                     <div className="flex items-end p-4 bg-gray-200 rounded-sm shadow-sm">
 
                                                                         <div className="flex-shrink-0">
-                                                                            <div className="relative inline-block">
+                                                                            <Link href={'/profile/' + userII.id}>
+                                                                                <div className="relative inline-block cursor-pointer">
 
-                                                                                {userII.avatar ?
-                                                                                    <div className="relative w-16 h-16 mt-3 overflow-hidden rounded-full">
-                                                                                        <img className="absolute top-0 left-0 object-cover w-full h-full bg-cover object-fit" src={userII.avatar} alt="Profile picture" />
-                                                                                    </div>
-                                                                                    :
-                                                                                    <div className='w-16 h-16 bg-gray-800 rounded-full'>
-                                                                                        <p className='py-3 text-2xl text-center text-gray-200'>{userII.user_name[0]}{userII.user_name[1]}</p>
-                                                                                    </div>
-                                                                                }
-
-                                                                                <div className="absolute top-0 left-0 w-full h-full rounded-full shadow-inner"></div>
-
-                                                                            </div>
+                                                                                    {userII.avatar ?
+                                                                                        <div className="relative w-16 h-16 mt-3 overflow-hidden rounded-full">
+                                                                                            <img className="absolute top-0 left-0 object-cover w-full h-full bg-cover object-fit" src={userII.avatar} alt="Profile picture" />
+                                                                                        </div>
+                                                                                        :
+                                                                                        <div className='w-16 h-16 bg-gray-800 rounded-full'>
+                                                                                            <p className='py-3 text-2xl text-center text-gray-200'>{userII.user_name[0]}{userII.user_name[1]}</p>
+                                                                                        </div>
+                                                                                    }
+                                                                                </div>
+                                                                            </Link>
                                                                         </div>
 
                                                                         <div className="ml-6">
@@ -215,11 +219,13 @@ export default function Profile() {
                                                                                 </p>
 
                                                                             </div>
-                                                                            <div className="mt-3">
-                                                                                <span className="font-bold text-gray-600">
-                                                                                    {userII.user_name}
-                                                                                </span>
-                                                                            </div>
+                                                                            <Link href={'/profile/' + userII.id}>
+                                                                                <div className="mt-3 cursor-pointer">
+                                                                                    <span className="font-bold text-gray-600">
+                                                                                        {userII.user_name}
+                                                                                    </span>
+                                                                                </div>
+                                                                            </Link>
                                                                             <div className="flex items-center mt-4 text-gray-600">
                                                                             </div>
                                                                         </div>

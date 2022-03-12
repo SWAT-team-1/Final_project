@@ -69,12 +69,12 @@ export default function Product() {//here just waiting to props to be added to f
                                         </div>
                                     </div>
                                 </div>
-                                <div className="w-9/12 mb-5 ml-10 -mt-72">
+                                <div className="w-10/12 mt-8 mb-5 ml-10 md:-mt-72 xl:w-7/12 lg:w-5/12 md:w-4/12">
                                     <div className='flex items-center justify-between'>
                                         <div>
                                             <h2 className='text-4xl font-semibold'>{product.product_name}</h2>
                                         </div>
-                                        <div className="mr-96">
+                                        <div>
                                             {users?.map(user => {
                                                 if (product.product_owner === user.id && user.avatar) {
                                                     return (
@@ -100,19 +100,21 @@ export default function Product() {//here just waiting to props to be added to f
                                             })}
                                         </div>
                                     </div>
-                                    <div className='flex items-center justify-between w-8/12 mt-5'>
+                                    <div className='flex items-center justify-between mt-5'>
                                         <div>
                                             <h3 className="text-3xl font-semibold text-left text-gray-700">Description</h3>
                                         </div>
+                                        <div>
                                         <div className="flex items-center jusrify-center">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="blue">
                                                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                             </svg>
                                             <span className="my-2 ml-2">{product.product_location}</span>
                                         </div>
+                                        </div>
                                     </div>
                                     <div className='w-9/12'>
-                                        <p className="w-full mt-8 text-xl text-center text-gray-700 text-hight-2 sm:text-left">
+                                        <p className="w-full mt-8 text-xl text-gray-700 text-hight-2 sm:text-left">
                                             {product.product_description}
                                         </p>
                                     </div>
@@ -122,8 +124,8 @@ export default function Product() {//here just waiting to props to be added to f
                     )
                 }
             })}
-            <section className="w-8/12">
-                <div className="w-10/12 pb-16 mx-auto">
+            <section className="w-8/12 mx-auto md:mx-0">
+                <div className="w-10/12 pb-16 mx-auto md:w-10/12">
                     <div className="w-full px-6 py-16">
                         <div className="grid gap-8 mt-10 md:grid-cols-3 sm:grid-cols-1">
                             <div className="px-6 py-8 overflow-hidden bg-gray-200 rounded-md shadow-md">
