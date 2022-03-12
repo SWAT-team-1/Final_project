@@ -19,7 +19,7 @@ export default function SignUp() {
     return (
         <div className="font-sans">
             <div className="relative flex flex-col items-center min-h-screen bg-gray-800 sm:justify-center">
-                <div className="relative w-full sm:max-w-sm">
+                <div className="relative max-w-md sm:w-full">
                     <div className="absolute w-full h-full transform bg-red-500 shadow-lg card rounded-3xl -rotate-6"></div>
                     <div className="absolute w-full h-full transform bg-yellow-500 shadow-lg card rounded-3xl rotate-6"></div>
 
